@@ -17,52 +17,44 @@ def point(n):
 
 
 # Игорь
-def up(x, y):
-    if city[x][y + 1] == 0:
-        city[x][y + 1] = 1
-        return x, y + 1
-    else:
-        return x, y
-
-
-# Игорь
-def down(x, y):
-    pass
-
-
-# Игорь
-def right(x, y):
-    pass
-
-
-# Игорь
-def left(x, y):
-    pass
-
-
-# Игорь
-def walk(x, y):
+def walk(x0, y0):
     # Шаг собаки
-    rnd = random.randint(1,4)
-    if rnd == 1:
-        # up
-        pass
-    if rnd == 2:
-        # right
-        pass
-    if rnd == 3:
-        # down
-        pass
-    if rnd == 4:
-        # left
-        pass
-    pass
-
+    sch = 0
+    if city[x0][y0+1] == 0:
+        sch += 1
+    if city[x0][y0-1] == 0:
+        sch += 1
+    if city[x0+1][y0] == 0:
+        sch += 1
+    if city[x0-1][y0] == 0:
+        sch += 1
+    rnd = random.randint(1, sch)
+    if city[x0][y0+1] == 0:
+        rnd -= 1
+        if rnd == 0:
+            city[x0][y0+1] = 1
+            return x0, y0+1
+    if city[x0+1][y0] == 0 and rnd != 0:
+        rnd -= 1
+        if rnd == 0:
+            city[x0+1][y0] = 1
+            return x0+1, y0
+    if city[x0][y0-1] == 0 and rnd != 0:
+        rnd -= 1
+        if rnd == 0:
+            city[x0][y0-1] = 1
+            return x0, y0-1
+    if city[x0-1][y0] == 0 and rnd != 0:
+        rnd -= 1
+        if rnd == 0:
+            city[x0-1][y0] = 1
+            return x0-1, y0
 
 # Оля
 def blind_alley(x, y):
     # (Тупик)
     # Проверка всех направлений на то была ли там собака
+    # функция должна выводить True или False
     pass
 
 
@@ -70,6 +62,7 @@ def blind_alley(x, y):
 def border(x, y):
     # проверка на границу города
     # Заканчивается ли таблица с одной из сторон
+    # функция должна выводить True или False
     pass
 
 
