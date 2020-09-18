@@ -1,3 +1,14 @@
+import random
+# Таблицу назовем city
+# 0 - собака не была
+# 1 - была
+#  сделал city глобально вместе с считыванием n
+city = []
+n = int(input())
+for i in range(n):
+    city.append([])
+    for j in range(n):
+        city[i].append(0)
 # Оля
 def point(n):
     # Помещение собаки в город на рандомные координаты
@@ -7,7 +18,11 @@ def point(n):
 
 # Игорь
 def up(x, y):
-    pass
+    if city[x][y + 1] == 0:
+        city[x][y + 1] = 1
+        return x, y + 1
+    else:
+        return x, y
 
 
 # Игорь
@@ -28,6 +43,19 @@ def left(x, y):
 # Игорь
 def walk(x, y):
     # Шаг собаки
+    rnd = random.randint(1,4)
+    if rnd == 1:
+        # up
+        pass
+    if rnd == 2:
+        # right
+        pass
+    if rnd == 3:
+        # down
+        pass
+    if rnd == 4:
+        # left
+        pass
     pass
 
 
