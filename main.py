@@ -3,26 +3,26 @@ def point (n):
 #return x,y
     pass
 
-def  up (x, y, city):
+def  up (x, y):
     pass
 
-def  down (x, y, city):
+def  down (x, y):
     pass
 
-def  right (x, y, city):
+def  right (x, y):
     pass
 
-def  left (x, y, city):
+def  left (x, y):
     pass
 
-def walk (x, y, city):
+def walk (x, y):
     #Шаг собаки
     pass
 
-def tupik (x, y, city):
+def tupik (x, y):
     #Проверка всех направлений на то была ли там собака
     pass
-def gran (x, y, city):
+def gran (x, y):
     #проверка на границу города
     #Заканчивается ли таблица с одной из сторон
     pass
