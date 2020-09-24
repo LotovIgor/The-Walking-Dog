@@ -50,11 +50,12 @@ def walk(x0, y0):
             city[x0-1][y0] = 1
             return x0-1, y0
 
+
 # Оля
 def blind_alley(x, y):
     # (Тупик)
     # Проверка всех направлений на то была ли там собака
-    # функция должна выводить True или False
+    # функция должна выводить 0(несработала) или 1(сработала)
     pass
 
 
@@ -62,21 +63,22 @@ def blind_alley(x, y):
 def border(x, y):
     # проверка на границу города
     # Заканчивается ли таблица с одной из сторон
-    # функция должна выводить True или False
+    # функция должна выводить 0(несработала) или 1(сработала)
     pass
 
 
 # Игорь
 def dog(n):
-    x,y = point(n)
-    while blind_alley(x,y) == False or border(x,y) == False:
-        x,y = walk(x,y)
-    if blind_alley(x,y) == True:
-        return False
+    x, y = point(n)
+    while blind_alley(x, y) == 0 or border(x, y) == 0:
+        x, y = walk(x, y)
+    if blind_alley(x, y) == 1:
+        return 0
     else:
-        return True
+        return 1
+
     #  Просчитывает одно путешествие собаки в городе
-    pass
+    # выводит 0 при тупике и 1 при выходе из города
 
 
 # Арсений
