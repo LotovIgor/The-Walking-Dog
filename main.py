@@ -68,6 +68,13 @@ def border(x, y):
 
 # Игорь
 def dog(n):
+    x,y = point(n)
+    while blind_alley(x,y) == False or border(x,y) == False:
+        x,y = walk(x,y)
+    if blind_alley(x,y) == True:
+        return False
+    else:
+        return True
     #  Просчитывает одно путешествие собаки в городе
     pass
 
