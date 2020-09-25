@@ -12,7 +12,9 @@ for i in range(n):
 # Оля
 def point(n):
     # Помещение собаки в город на рандомные координаты
-    # return x,y
+    x = random.randint(0, n)
+    y = random.randint(0, n)
+    return x,y
     pass
 
 
