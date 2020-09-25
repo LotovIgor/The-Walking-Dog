@@ -1,14 +1,16 @@
 import random
+import turtle
 # Таблицу назовем city
 # 0 - собака не была
 # 1 - была
-#  сделал city глобально вместе с считыванием n
 city = []
 n = int(input())
-for i in range(n):
+for d in range(n):
     city.append([])
-    for j in range(n):
-        city[i].append(0)
+    for t in range(n):
+        city[d].append(0)
+
+
 # Оля
 def point(n):
     # Помещение собаки в город на рандомные координаты
@@ -107,14 +109,18 @@ def dog(n):
 
 
 # Арсений
-if __name__ == '__main__':
+def prob(n):
     # e выходы, m повторения, r результат действия функции собаки
     e = 0
-    m = 10000
+    m = int(input())
     r = 0
     # Множество повторений функции и вероятность
     for d in range(m):
         r = dog(n)
         if r == 1:
             e += 1
-    print(e/m)
+    print(round(e / m * 100, 6), "% - Шанс собаки выйти из города")
+
+
+if __name__ == '__main__':
+    prob(n)
