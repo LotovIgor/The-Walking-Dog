@@ -123,6 +123,8 @@ def prob(n, m):
 
 # Игорь
 def visual(n):
+    col_t = 'black'
+    col_d = 'red'
     turtle.setup(width=900, height=1000)
     turtle.speed('fastest')
     turtle.ht()
@@ -130,7 +132,7 @@ def visual(n):
     turtle.goto(-400, -400)
     factor = 800/(n-1)
     turtle.pensize(80/n)
-    turtle.pencolor('black')
+    turtle.pencolor(col_t)
 
     for i in range(n-1):
         turtle.down()
@@ -154,18 +156,18 @@ def visual(n):
     s = point(n)
     x = s[0]
     y = s[1]
-    turtle.pencolor('red')
+    turtle.pencolor(col_d)
     turtle.goto(-400 + (x) * factor, -400 + (y) * factor)
-    turtle.dot(160/n, 'red')
+    turtle.dot(160/n, col_d)
     turtle.down()
     turtle.speed(1)
     while border([x, y]) == 0 and blind_alley([x, y]) == 0:
         x, y = walk([x, y])
         turtle.goto(-400 + (x) * factor, -400 + (y) * factor)
-        turtle.dot(160/n, 'red')
+        turtle.dot(160/n, col_d)
     turtle.up()
     turtle.speed('fastest')
-    turtle.pencolor('black')
+    turtle.pencolor(col_t)
     if border([x, y]) == 1:
         turtle.goto(-400, 420)
         turtle.write('Собака вышла из города!', font=("Arial", 40, "normal"))
@@ -176,5 +178,6 @@ def visual(n):
 
 
 if __name__ == '__main__':
-    m = int(input())
-    prob(n, m)
+   # m = int(input())
+   # prob(n, m)
+   visual(n)
