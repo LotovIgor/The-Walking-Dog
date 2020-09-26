@@ -109,10 +109,9 @@ def dog(n):
 
 
 # Арсений
-def prob(n):
+def prob(n, m):
     # e выходы, m повторения, r результат действия функции собаки
     e = 0
-    m = int(input())
     r = 0
     # Множество повторений функции и вероятность
     for d in range(m):
@@ -123,4 +122,5 @@ def prob(n):
 
 
 if __name__ == '__main__':
-    prob(n)
+    m = int(input())
+    prob(n, m)
