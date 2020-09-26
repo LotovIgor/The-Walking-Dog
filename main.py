@@ -113,7 +113,6 @@ def dog(n):
 def prob(n, m):
     # e выходы, m повторения, r результат действия функции собаки
     e = 0
-    r = 0
     # Множество повторений функции и вероятность
     for d in range(m):
         r = dog(n)
@@ -124,8 +123,6 @@ def prob(n, m):
 
 # Игорь
 def visual(n):
-    # визуализация одного прохода
-    # таблица 800*800
     turtle.setup(width=900, height=1000)
     turtle.speed('fastest')
     turtle.ht()
@@ -176,6 +173,8 @@ def visual(n):
         turtle.goto(-400, 420)
         turtle.write('Собака попала в тупик :(', font=("Arial", 40, "normal"))
     turtle.exitonclick()
+
+
 if __name__ == '__main__':
     m = int(input())
     prob(n, m)
