@@ -14,8 +14,9 @@ for d in range(n):
 # Оля
 def point(n):
     # Помещение собаки в город на рандомные координаты
-    x = random.randint(1, n-1)
-    y = random.randint(1, n-1)
+    x = random.randint(1, n-2)
+    y = random.randint(1, n-2)
+    city[x][y] = 1
     return [x, y]
 
 
@@ -121,6 +122,60 @@ def prob(n, m):
     print(round(e / m * 100, 6), "% - Шанс собаки выйти из города")
 
 
+# Игорь
+def visual(n):
+    # визуализация одного прохода
+    # таблица 800*800
+    turtle.setup(width=900, height=1000)
+    turtle.speed('fastest')
+    turtle.ht()
+    turtle.up()
+    turtle.goto(-400, -400)
+    factor = 800/(n-1)
+    turtle.pensize(80/n)
+    turtle.pencolor('black')
+
+    for i in range(n-1):
+        turtle.down()
+        turtle.goto(-400 + i * factor, 400)
+        turtle.up()
+        turtle.goto(-400 + (i + 1) * factor, -400)
+    turtle.down()
+    turtle.goto(-400 + (i + 1) * factor, 400)
+    turtle.up()
+    turtle.goto(-400, -400)
+
+    for i in range(n-1):
+        turtle.down()
+        turtle.goto(400, -400 + i * factor)
+        turtle.up()
+        turtle.goto(-400, -400 + (i + 1) * factor)
+    turtle.down()
+    turtle.goto(400, -400 + (i + 1) * factor)
+    turtle.up()
+
+    s = point(n)
+    x = s[0]
+    y = s[1]
+    turtle.pencolor('red')
+    turtle.goto(-400 + (x) * factor, -400 + (y) * factor)
+    turtle.dot(160/n, 'red')
+    turtle.down()
+    turtle.speed(1)
+    while border([x, y]) == 0 and blind_alley([x, y]) == 0:
+        x, y = walk([x, y])
+        turtle.goto(-400 + (x) * factor, -400 + (y) * factor)
+        turtle.dot(160/n, 'red')
+    turtle.up()
+    turtle.speed('fastest')
+    turtle.pencolor('black')
+    if border([x, y]) == 1:
+        turtle.goto(-400, 420)
+        turtle.write('Собака вышла из города!', font=("Arial", 40, "normal"))
+    else:
+        turtle.goto(-400, 420)
+        turtle.write('Собака попала в тупик :(', font=("Arial", 40, "normal"))
+    turtle.exitonclick()
 if __name__ == '__main__':
     m = int(input())
     prob(n, m)
