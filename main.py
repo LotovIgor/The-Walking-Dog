@@ -177,6 +177,18 @@ def visual(n):
     turtle.exitonclick()
 
 
+# Оля
+def graph():
+    # Строим график вероятности от размера таблицы
+    pass
+
+
+# Арсений
+def num():
+    # Ищем оптимальное количество повторений
+    pass
+
+
 if __name__ == '__main__':
    # m = int(input())
    # prob(n, m)
