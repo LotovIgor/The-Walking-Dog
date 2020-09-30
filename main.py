@@ -95,6 +95,9 @@ def blind_alley(s):
 
 # Игорь
 def dog(n):
+    for i in range(n):
+        for j in range(n):
+            city[i][j] = 0
     s = point(n)
     x = s[0]
     y = s[1]
@@ -118,7 +121,8 @@ def prob(n, m):
         r = dog(n)
         if r == 1:
             e += 1
-    print(round(e / m * 100, 6), "% - Шанс собаки выйти из города")
+    return e / m * 100
+    # print(round(e / m * 100, 6), "% - Шанс собаки выйти из города")
 
 
 # Игорь
@@ -184,12 +188,25 @@ def graph():
 
 
 # Арсений
-def num():
-    # Ищем оптимальное количество повторений
+def num(n):
+    '''
+    s = []
+    while otkl / 20 > 1:
+        otkl = 0
+        for d in range (20):
+            s[d] = prob(n, g)
+            summa += s[d]
+        sredn = summa / 20
+        for d in range (20):
+            otkl += abs(sredn - s[d])
+        if otkl / 20 > 1:
+            g += 100
+        # Ищем оптимальное количество повторений
+    print(g)'''
     pass
 
 
 if __name__ == '__main__':
-   # m = int(input())
-   # prob(n, m)
-   visual(n)
+   m = int(input())
+   print(prob(n, m))
+   # visual(n)
