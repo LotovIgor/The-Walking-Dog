@@ -1,5 +1,6 @@
 import random
 import turtle
+import matplotlib.pylab as plt
 # Таблицу назовем city
 # 0 - собака не была
 # 1 - была
@@ -182,31 +183,43 @@ def visual(n):
 
 
 # Оля
-def graph():
+def graph(n, m):
     # Строим график вероятности от размера таблицы
-    pass
+    y = []
+    x = []
+    for f in range(n - 2):
+        x.append(f + 3)
+        y.append(prob(f + 3, m))
+    plt.grid()
+    plt.plot(x, y)
+    plt.show()
 
 
 # Арсений
-def num(n):
-    '''
-    s = []
-    while otkl / 20 > 1:
-        otkl = 0
-        for d in range (20):
-            s[d] = prob(n, g)
-            summa += s[d]
-        sredn = summa / 20
-        for d in range (20):
-            otkl += abs(sredn - s[d])
-        if otkl / 20 > 1:
-            g += 100
-        # Ищем оптимальное количество повторений
-    print(g)'''
+def num(n, p):
+    sch = 20
+    g = 100
+    o = sch * p + 1
+    while o / sch > p:
+        s = []
+        sm = 0
+        for d in range(sch):
+            s.append(prob(n, g))
+            sm += s[d]
+        sr = sm / sch
+        o = abs(sr - s[0])
+        for d in range(sch - 1):
+            o += abs(sr - s[d + 1])
+        if o / sch > p:
+            g += 10
+    return g
+    # Ищем оптимальное количество повторений
     pass
 
 
 if __name__ == '__main__':
-   m = int(input())
-   print(prob(n, m))
-   # visual(n)
+    # m = int(input())
+    # print(prob(n, m))
+    # visual(n)
+    # graph (n, 1000)
+    print(num(n, 0.5))
